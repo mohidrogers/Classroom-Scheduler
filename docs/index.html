@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Classroom Scheduler</title>
+    <link rel="stylesheet" href="style.css">
+<script src="main.js"></script>
+</head>
+<body> 
+    <span><form action="http://localhost:8070/Show" target="_blank" method="POST">
+        <div class="brand"><a href="#">Classroom Scheduler</a>
+        <span id="time"></span>
+        <span><button id="monthwise" type="button" onclick="getdate()">Month</button></span>
+        <span><button id="weekwise" type="button" onclick="weekly()">Week</button></span>
+        <span><button id="daywise" type="button">Day</button></span>
+        <span><button type="button" id="addevent" onclick="addevents1('addevent')">Add Event</button></span>
+        <span> <button type="submit" id="showall" onclick="showall1()" name="show">All Events</button></span>
+        <span><button id="search" type="button">Search</button></span>
+        <span><input type="text" id="teacher" placeholder="enter teacher name"></span></div></form>
+    </span>
+    <div class="main">
+        <div class="calendar">
+            <div class="month">
+                <div class="prev" id="prev" onclick="changemonth('prev')">
+                    <span>&#10094;</span>
+                </div>
+                <div>
+                    <h2 id="month"></h2>
+
+                    <p id="year"></p>
+                </div>
+                <div class="next" id="next" onclick="changemonth('next')">
+                    <span>&#10095;</span>
+                </div>
+            </div>
+            <div class="weekdays" id="weeknames">
+                <div>Sun</div>
+                <div>Mon</div>
+                <div>Tue</div>
+                <div>Wed</div>
+                <div>Thu</div>
+                <div>Fri</div>
+                <div>Sat</div>
+            </div>
+            <div class="days">
+            </div>
+        </div>
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <form class="myform" name="myform" id="myform" method="POST" action="http://localhost:8070/Classroom" target="_blank">
+              <h1 id="modaladd" >Add Event</h1>
+              <input type="text" id="teachername" placeholder="add teacher name" name="teachername1">
+              <input type="text" id="eventcon" placeholder="add event name" name="eventcon1">
+              <span><b style="color: #4285F4;">From:</b><input id="fromdate" type="datetime-local" placeholder="select date and time" onfocus="(this.type='datetime-local')" name="fromdate1"></span>
+        <span><b style="color: #4285F4;">To:</b><input id="todate" type="datetime-local" placeholder="select date and time"
+            onfocus="(this.type='datetime-local')" name="todate1"></span>
+            <span style="color: #4285F4;"><b>Description:</b><textarea  id="description" placeholder="add description" name="description1"></textarea></span>
+            <input type="submit" id="save" value="Save" onclick="alert('Event Added Successfully')">
+          </form>
+        </div>
+      </div>
+      <!---<div id="myModal2" class="modal1">
+        <div class="modal-content">
+          <span class="close1">&times;</span>
+          <div id="answers"><b style="font-size: 20px;">There are no events to show</b></div>-->
+        </div>
+      
+    </div>
+</body>
+
+</html>
